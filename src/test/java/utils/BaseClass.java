@@ -6,8 +6,6 @@ import org.testng.annotations.BeforeClass;
 
 
 
-
-
 public class BaseClass {
 
 	
@@ -16,8 +14,8 @@ public class BaseClass {
 
     @BeforeClass
     public void setup() {
-        driver = DriverSetUp.getDriver();
-       
+     //   driver = DriverSetUp.getDriver();
+    	driver = DriverSetUp.getDriver();
     }
 
     @AfterClass

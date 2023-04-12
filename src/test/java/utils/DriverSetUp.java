@@ -15,43 +15,44 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class DriverSetUp {
-
 	
-	private static WebDriver driver;
+	private static WebDriver webDriver;
 
-    private DriverSetUp(){};  // constructor private constructor to not create an object from this class
-    
+    public DriverSetUp(){};
 
     public static WebDriver getDriver(){
-        if (driver == null||((RemoteWebDriver)driver).getSessionId()==null){
-            driver = createWebDriver();
+        if (webDriver == null||((RemoteWebDriver)webDriver).getSessionId()==null){
+            webDriver = createWebDriver();
         }
-        return driver;
+        return webDriver;
     }
-    private static WebDriver createWebDriver(){
+    public static WebDriver createWebDriver(){
             //  String browser="chrome";
             switch (ConfigReader.getBrowser()){
 
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver=new FirefoxDriver();
+                    webDriver=new FirefoxDriver();
                     break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
-                   driver = new EdgeDriver();
+                    webDriver = new EdgeDriver();
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
-                    options.addArguments("--remote-allow-origins=*");// for the new chrome update
-                    driver=new ChromeDriver(options);
-                   
+                    options.addArguments("--remote-allow-origins=*");
+                    webDriver=new ChromeDriver(options);
+                    
                     break;
             }
-        driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-      
-        return driver;
+        webDriver.manage().window().maximize();
+        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        return webDriver;
     }
+	
+	
+	
+
 }

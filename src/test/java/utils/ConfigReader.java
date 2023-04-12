@@ -12,11 +12,15 @@ public class ConfigReader {
 	
 	private static String readProperty(String key)  {
 	
-        File file = new File("src/test/resources/configuration.properties");
+   
         Properties prop = new Properties();  // object to red from properties file
         try {
 			FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"//src/main/java/resources/GlobalData.properties");
+			prop.load(fis);
 		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
