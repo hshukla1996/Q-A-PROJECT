@@ -51,7 +51,7 @@ public class BrowsersUtils {
 	        String screenShotFileName=currentDate.toString().replace(" ","-").replace(":","-");
 	       
 	        File screenShotFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	        FileUtils.copyFile(screenShotFile,new File("src/test/resources/screenshot/"+screenShotFileName+".png"));
+	        FileUtils.copyFile(screenShotFile,new File(".//screenshots/"+screenShotFileName+".png"));
 	        }
 	  
 	  // switch windows using window handle
