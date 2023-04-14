@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import utils.DriverSetUp;
 
-public class SAMPLE_TEST {
+public class SampleTest {
 
 	
 	
