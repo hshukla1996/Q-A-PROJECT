@@ -16,7 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverSetUp {
 	
-	private static WebDriver webDriver;
+	public static WebDriver webDriver;
 
     public DriverSetUp(){};
 
